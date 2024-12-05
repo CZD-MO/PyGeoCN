@@ -5,7 +5,7 @@ with open('README.md', encoding='utf-8') as f:
 
 setup(
     name='pygeo_cn',
-    version='0.1.2',
+    version='0.1.3',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[

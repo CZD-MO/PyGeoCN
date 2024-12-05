@@ -1,6 +1,6 @@
 # Geo-Reverse Lookup for China
 
-提供了处理中国境内经纬度坐标逆地理编码的功能，使用经纬度坐标查询地理位置，最细的粒度到县级市。
+提供了离线处理中国境内经纬度坐标逆地理编码的功能，使用经纬度坐标查询地理位置，最细的粒度到县级市。
 
 ## 安装
 
@@ -24,7 +24,7 @@ result = regeo(latitude, longitude)
 print(result)
 
 # 输出结果：
-# {'status': 1, 'Info': 'Successfully retrieved address.', 'address': {'province': '江苏省', 'city': '苏州市', 'district': '张家港市'}}
+# {'status': 1, 'source': 'Internal', 'Info': 'Successfully retrieved address.', 'address': {'province': '江苏省', 'province_code': '156320000', 'city': '苏州市', 'city_code': '156320500', 'district': '张家港市', 'district_code': '156320582'}}
 ```
 
 ## 返回值结构
@@ -32,13 +32,35 @@ print(result)
 ```
 {
   "status": 1, # 1为成功，0为失败
-  "Info": "Successfully retrieved address.", # 是否返回信息概述
+  "source": "Internal",  # Internal为引用内部数据，External为引用外部数据
+  "Info": "Successfully retrieved address.", # 返回信息概述
   "address": {
-    "province": "江苏省",  # 省
-    "city": "苏州市",  # 市
-    "district": "张家港市", #区县
+    "province": "江苏省",  # 省份
+    "province_code": "156320000", 省份编号
+    "city": "苏州市",  # 城市
+    "city_code": "156320500", # 城市编号
+    "district": "张家港市", # 区县
+    "district_code": "156320582"  # 区县编号
   }
 }
+```
+
+## 数据来源
+
+数据来源于[天地图](https://https://cloudcenter.tianditu.gov.cn/administrativeDivision/)，地图数据可能会更新，可自行去天地图下载，然后使用自己下载的地理坐标数据,并重命名成固定的文件名（chain_province.geojson(省份坐标数据)、china_city.geojson（城市坐标数据）、china_district.geojson（区县坐标数据）），使用时只需要再传入指定的目录即可：
+
+```python
+from PyGeoCN.regeo import regeo
+
+latitude = 31.924167 # 纬度
+longitude = 120.492326  # 经度
+# 下载包存放目录路径
+geo_dir = "/data"
+result = regeo(latitude, longitude,geo_dir)
+print(result)
+
+# 输出结果：
+# {'status': 1, 'source': 'External', 'Info': 'Successfully retrieved address.', 'address': {'province': '江苏省', 'province_code': '156320000', 'city': '苏州市', 'city_code': '156320500', 'district': '张家港市', 'district_code': '156320582'}}
 ```
 
 ## 注意事项
