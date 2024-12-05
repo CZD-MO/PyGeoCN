@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+PyGeoCN/__init__.py
+PyGeoCN/china_city.geojson
+PyGeoCN/china_district.geojson
+PyGeoCN/china_province.geojson
+PyGeoCN/regeo.py
+pygeo_cn.egg-info/PKG-INFO
+pygeo_cn.egg-info/SOURCES.txt
+pygeo_cn.egg-info/dependency_links.txt
+pygeo_cn.egg-info/requires.txt
+pygeo_cn.egg-info/top_level.txt

@@ -4,8 +4,8 @@ with open('README.md', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='geo',
-    version='0.1.0',
+    name='pygeo_cn',
+    version='0.1.2',
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
@@ -16,7 +16,7 @@ setup(
     author_email='caozuodong666@gmail.com',
     description='A package for reverse geocoding in China',
     long_description_content_type='text/markdown',
-    url='https://github.com/CZD-MO/geo',
+    url='https://github.com/CZD-MO/PyGeoCN',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',

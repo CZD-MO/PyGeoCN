@@ -1,1 +1,1 @@
-include geo/*.geojson
+include PyGeoCN/*.geojson
