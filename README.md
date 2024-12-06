@@ -1,13 +1,13 @@
 # Geo-Reverse Lookup for China
 
-提供了离线处理中国境内经纬度坐标逆地理编码的功能，使用经纬度坐标查询地理位置，最细的粒度到县级市。
+提供了离线处理中国境内经纬度坐标逆地理编码的功能，使用经纬度坐标查询地理位置信息（包括位置和行政编码），最细的粒度到区县级市。
 
 ## 安装
 
 你可以通过以下命令安装这个包：
 
 ```bash
-pip install geo
+pip install pygeo-cn
 #确保你已经安装了pip和wheel：
 ```
 
@@ -36,18 +36,18 @@ print(result)
   "Info": "Successfully retrieved address.", # 返回信息概述
   "address": {
     "province": "江苏省",  # 省份
-    "province_code": "156320000", 省份编号
+    "province_code": "156320000", 省份行政编码
     "city": "苏州市",  # 城市
-    "city_code": "156320500", # 城市编号
+    "city_code": "156320500", # 城市行政编码
     "district": "张家港市", # 区县
-    "district_code": "156320582"  # 区县编号
+    "district_code": "156320582"  # 区县行政编码
   }
 }
 ```
 
 ## 数据来源
 
-数据来源于[天地图](https://https://cloudcenter.tianditu.gov.cn/administrativeDivision/)，地图数据可能会更新，可自行去天地图下载，然后使用自己下载的地理坐标数据,并重命名成固定的文件名（chain_province.geojson(省份坐标数据)、china_city.geojson（城市坐标数据）、china_district.geojson（区县坐标数据）），使用时只需要再传入指定的目录即可：
+数据来源于[天地图](https://https://cloudcenter.tianditu.gov.cn/administrativeDivision/)，地图数据可能会更新，如果pygeo-cn包的数据未及时更新可自行去天地图下载，然后使用自己下载的地理坐标数据,并重命名成固定的文件名（chain_province.geojson(省份坐标数据)、china_city.geojson（城市坐标数据）、china_district.geojson（区县坐标数据）），使用时只需要再传入指定的目录即可：
 
 ```python
 from PyGeoCN.regeo import regeo
