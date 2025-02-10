@@ -47,7 +47,7 @@ print(result)
 
 ## 数据来源
 
-数据来源于[天地图](https://https://cloudcenter.tianditu.gov.cn/administrativeDivision/)，地图数据可能会更新，如果pygeo-cn包的数据未及时更新可自行去天地图下载，然后使用自己下载的地理坐标数据,并重命名成固定的文件名（chain_province.geojson(省份坐标数据)、china_city.geojson（城市坐标数据）、china_district.geojson（区县坐标数据）），使用时只需要再传入指定的目录即可：
+数据来源于[天地图](https://cloudcenter.tianditu.gov.cn/administrativeDivision/)，地图数据可能会更新，如果pygeo-cn包的数据未及时更新可自行去天地图下载，然后使用自己下载的地理坐标数据,并重命名成固定的文件名（chain_province.geojson(省份坐标数据)、china_city.geojson（城市坐标数据）、china_district.geojson（区县坐标数据）），使用时只需要再传入指定的目录即可：
 
 ```python
 from PyGeoCN.regeo import regeo
